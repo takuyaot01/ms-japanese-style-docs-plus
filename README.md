@@ -21,9 +21,9 @@ Microsoft の公開日本語スタイルガイドを参考に、作者が普段�
 
 ### 2. Cowork に追加
 
-1. Copilot Cowork を開きます。
-2. 左側の **Plugins** ページを開き、必要に応じて **Skills** で絞り込みます。
-3. **Add > Upload** を選びます。
+1. Copilot を開きます。
+2. 左側の **プラグイン** を開き、**Cowork** タブを選びます。
+3. **追加 > アップロード** を選びます。
 4. ダウンロードした `ms-japanese-style-docs-plus.zip` をアップロードします。
 5. スキル一覧に `ms-japanese-style-docs-plus` が表示されれば、追加できています。
 
