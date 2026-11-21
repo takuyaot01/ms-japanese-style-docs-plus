@@ -17,7 +17,7 @@ Microsoft の公開日本語スタイルガイドを参考に、作者が普段�
 
 **[導入用 ZIP をダウンロード](./ms-japanese-style-docs-plus.zip?raw=1)**
 
-ダウンロードした `ms-japanese-style-docs-plus.zip` を、**展開せずに** Cowork にアップロードします。PowerShell の出番はありません。ZIP はもう用意してあります。
+ダウンロードした `ms-japanese-style-docs-plus.zip` を、**展開せずに** Cowork にアップロードします。
 
 この導入用 ZIP は、ルートに `SKILL.md` がある次の構成です。GitHub の **Code > Download ZIP** はリポジトリ全体の ZIP なので、Cowork に渡すときは上のリンクを使ってください。
 
