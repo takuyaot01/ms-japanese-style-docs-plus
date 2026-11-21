@@ -19,18 +19,6 @@ Microsoft の公開日本語スタイルガイドを参考に、作者が普段�
 
 ダウンロードした `ms-japanese-style-docs-plus.zip` を、**展開せずに** Cowork にアップロードします。
 
-この導入用 ZIP は、ルートに `SKILL.md` がある次の構成です。GitHub の **Code > Download ZIP** はリポジトリ全体の ZIP なので、Cowork に渡すときは上のリンクを使ってください。
-
-```text
-ms-japanese-style-docs-plus.zip
-  LICENSE
-  SKILL.md
-  references
-    style-rules.md
-    document-conventions.md
-    kana-kanji-okurigana.md
-```
-
 ### 2. Cowork に追加
 
 1. Copilot Cowork を開きます。
