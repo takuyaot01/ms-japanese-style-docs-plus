@@ -1,187 +1,84 @@
 ---
 name: ms-japanese-style-docs-plus
 description: >-
-  Creates Japanese PowerPoint decks, Word documents, and Excel workbooks whose
-  text follows the public Microsoft Japanese Localization Style Guide plus
-  explicit house rules — Microsoft
-  voice, half-width/full-width punctuation and spacing, noun-phrase headings,
-  ですます調 body text, and customer-facing polite tone. Use when the user asks
-  to "create a PowerPoint/Word/Excel file in Japanese", "make a deck or
-  document following the Microsoft style guide", "日本語でスライド/資料/
-  ドキュメント/表を作って", "Microsoft スタイルガイドに沿った提案書・報告書・
-  一覧表", "customer deck or proposal in Japanese", "日本語で Word の資料を
-  作って", "日本語で Excel の一覧表を作って", or to apply Microsoft Japanese
-  style to slide, document, or worksheet text. Do NOT use for English-language deliverables, or for
-  reviewing wording without producing a .pptx / .docx / .xlsx file.
-  Authored by Takuya Ohta (Takuya Ohta 作成).
+  Applies a Japanese wording layer to PowerPoint, Word, and Excel using the
+  public Microsoft Japanese Localization Style Guide and identified Plus house rules.
+  Use for "日本語でプレゼンを作って", "make a customer deck in Japanese",
+  "日本語で Word の提案書を作って", "日本語で Excel の一覧表を作って", or
+  "Microsoft の日本語スタイルでこの文を見直して". Explicit style advice or text-only
+  review stays inline. Do NOT use for ordinary proofreading without a request for
+  this style, non-Japanese deliverables, PDF-only work, or sending messages.
 license: MIT
 metadata:
   category: writing
   icon: SlideText
-  version: "2.0.0"
+  version: "2.1.0"
+  updated: "2026-11-22"
 ---
 
 # MS Japanese Style Docs+
 
-_作成者: Takuya Ohta (Created by Takuya Ohta)・作成日: 2026 年 7 月・更新日: 2026 年 11 月 21 日・バージョン: v2.0.0 (公開資料ベース版)_
+作成者 : Takuya Ohta  
+作成日 : 2026 年 7 月  
+更新日 : 2026 年 11 月 22 日  
+バージョン : v2.1.0 (公開資料ベース版)
 
-Generate Japanese PowerPoint decks, Word documents, and Excel workbooks whose
-wording, punctuation, spacing, and tone conform to the **Microsoft Japanese
-Localization Style Guide**. This skill owns the *language and style layer* only;
-file construction is delegated to the built-in `pptx`, `docx`, or `xlsx` skill
-depending on the deliverable.
-
-This public edition is based on the official public guide and explicitly
-identified house rules.
+日本語の PowerPoint、Word、Excel に、読みやすい表記、操作説明、読み手に合ったトーンを適用します。担当するのは言葉と表記です。ファイルの作成や編集は対応する `pptx` / `docx` / `xlsx` スキルに委ねます。
 
 ## When to Use
 
-Use when the user wants a Japanese deliverable that reads like polished
-Microsoft content — internal briefings, customer/sales decks, product overviews,
-proposals, reports, manuals, SOPs, checklists, item lists, trackers — or asks
-explicitly for the Microsoft style guide to be applied to a deck, document, or
-worksheet.
-
-Trigger examples:
-- "日本語でプレゼンを作って" / "この内容でスライドを作成して"
-- "Microsoft のスタイルガイドに沿った PowerPoint にして"
-- "make a customer deck in Japanese"
-- "顧客向けの提案資料を PowerPoint で"
-- "apply the Microsoft Japanese style to these slides"
-- "日本語で提案書/報告書を Word で作って"
-- "Microsoft スタイルガイドに沿った Excel の一覧表を作って"
+- 日本語のスライド、提案書、報告書、手順書、議事録、一覧表などの作成や、既存の Office ファイルの文面編集を依頼されたとき。
+- Microsoft の日本語スタイル、またはこのスキルを明示して、文面の確認や表記の相談を依頼されたとき。ファイルを求められていなければチャット内で答えます。
 
 ## When NOT to Use
 
-- **English (or non-Japanese) deliverables** — use the built-in `pptx` / `docx`
-  / `xlsx` skill directly.
-- **PDF deliverables** — use the built-in `pdf` skill.
-- **Reviewing wording without producing a file** — just answer inline using the
-  rules in `references/style-rules.md`; do not build a file.
-- **Fabricating business facts** — if the user hasn't supplied the content and
-  it can't be found in M365, leave a clearly-marked placeholder; never invent
-  figures, quotes, customer names, or dates.
+- このスタイルの指定がない文章だけの一般校正、日本語の文面を扱わない作業、データのみの集計や数式の設計には使いません。
+- 日本語以外の Office 成果物や PDF のみの依頼は、対象形式のスキルに任せます。メールや Teams の送信・投稿は対象外です。
 
-## Reference Material
+## 規則の優先順位と参照先
 
-- [style-rules.md](./references/style-rules.md) — core rules for all three
-  formats. Always read it, starting with the explicit house rules in §0.
-- [document-conventions.md](./references/document-conventions.md) — document
-  structure, UI labels, keys, numbers, and product names. Always read it too.
-- [kana-kanji-okurigana.md](./references/kana-kanji-okurigana.md) — a concise
-  lookup procedure grounded in the public guide's character references. Read
-  it when unsure about kana, kanji, or okurigana; it is not a dictionary.
-- [Microsoft Japanese Localization Style Guide](https://aka.ms/japanese-styleguide)
-  — the public source of truth, except for the explicit house rules in §0.
-  The PDF is not bundled with this public skill.
-  Consult it when a case isn't covered by the cheat sheet. The official
-  [style guide catalog](https://learn.microsoft.com/ja-jp/globalization/reference/microsoft-style-guides)
-  provides the current download link.
+1. **変更しない指定と確定済みの文字列を守ります。** 原文維持の指定、対象環境で確認できた UI 名、固有名詞、引用、ログ、コード、URL、時刻、パス、ID、セル値・数式を保護します。説明用の UI 名から外せるのは、表示時の付加表示だと確認できたものだけです。
+2. **編集できる文面には Plus 独自の指定を優先します。** [表記ルール §0](references/style-rules.md) の半角 `()`、本文中の `日時 : ...`、フォントなどは公式要件ではありません。
+3. **日本語の Microsoft 表記は公開の日本語ガイドを優先します。** [Microsoft 日本語ローカリゼーション スタイルガイド (PDF)](https://download.microsoft.com/download/bb82f407-78f4-4df4-accd-d63ceaadd24a/jpn-jpn-StyleGuide.pdf) を参照します。リンクが変わった場合は [公式ガイド一覧](https://learn.microsoft.com/ja-jp/globalization/reference/microsoft-style-guides) から日本語版を探します。
+4. **関連する公開資料は補助として使います。** Microsoft Learn の英語の手順ガイドは構成の参考、文化審議会・文化庁の公開資料は日本語の明瞭さ、敬語、表記の参考です。どちらも日本語の Microsoft 固有表記を決める根拠にはしません。
+5. **残る判断は編集上の目安です。** 同梱の例や慣行を唯一の正解とはせず、出典で確認できない規則を公式と説明しません。
+
+| 参照先 | 読む場面 |
+|---|---|
+| [表記ルール](references/style-rules.md) | 最初に §0。文面の作成・編集では生成前の §7 も確認 |
+| [文書要素・操作手順](references/document-conventions.md) | ファイル作成・編集、UI、キー、数値、手順の相談 |
+| [かな・漢字・送り仮名](references/kana-kanji-okurigana.md) | 表記の揺れ、同音語、条件や範囲の言い分けに迷うとき |
+| [ビジネス文書](references/business-writing.md) | 提案、報告、依頼、障害連絡、敬語の判断が必要なとき |
 
 ## Workflow
 
-1. **Pick the target format first.** Slides / deck / プレゼン → `pptx`;
-   prose document, 提案書, 報告書, 手順書, 議事録, letter → `docx`;
-   row/column data, 一覧, 表, 台帳, 予算, トラッカー → `xlsx`. If the user names
-   a format, honor it. If not, choose by the shape of the content and say which
-   you chose.
-2. **Gather the content.** If the user supplied the material, preserve its facts,
-   numbers, names, dates, conditions, and intended meaning while adjusting
-   wording, tone, punctuation, and spacing according to this skill's rules.
-   Keep exact quotations and fixed strings unchanged, and honor explicit
-   requests to retain the original wording.
-   If they named a topic but no content, search M365 (`SearchM365`,
-   `ListMessages`, `ListCalendarView`) for the real facts before drafting. Use
-   clearly-marked placeholders (e.g. `<Q3 の売上を記入>`) for anything missing —
-   never fabricate.
-3. **Load the rules.** Read [style-rules.md](./references/style-rules.md) and
-   [document-conventions.md](./references/document-conventions.md). Consult
-   [kana-kanji-okurigana.md](./references/kana-kanji-okurigana.md) for spelling
-   questions. For edge cases not covered there, consult the relevant section of
-   the public guide linked above; do not read the whole guide unnecessarily.
-   If external access is unavailable, explicitly flag any unresolved rule and
-   ask the user for the relevant source before finalizing the affected text.
-   Do not guess a rule or claim it was verified against the official guide.
-4. **Draft the Japanese text, applying the style layer:**
-   - **Headings, titles, bullet item names, Word 見出し, Excel の列見出し・
-     シート名 → 原則として体言止め (noun phrase)**.
-     Use a short plain-style verb phrase when a noun phrase would obscure the
-     meaning, keeping the same heading level consistent.
-   - **Body / explanatory text → ですます調**, consistent within each file.
-   - **Punctuation & symbols**: follow §0 and §3. Keep Japanese 。、「」『』・ー;
-     use ASCII forms for punctuation that has an ASCII equivalent, including
-     `()` for parentheses. Use `...` for ellipses and 「から」 or `-` for ranges.
-     In Japanese prose, place one space on each side of `:`. Do not alter
-     colons in fixed strings such as URLs, times, paths, code, or formulas.
-     Use ・ for names or parallel words, not to split katakana compounds.
-   - **Spacing**: one half-width space between full-width and half-width text
-     (`Word を使用` / `第 3 章` / `Shift キー`), honoring the §4 exceptions.
-   - **Document elements**: follow the public rules and separately marked
-     house conventions in `references/document-conventions.md`.
-   - **Word choice**: swap stiff words for everyday ones (可能です→できます,
-     推奨→お勧め, 再度→もう一度, 詳細な→詳しい); drop unneeded あなた/私.
-   - **Tone**: for customer/sales decks use polite 丁寧語 (ご確認ください,
-     お使いいただく) and 弊社 for Microsoft; avoid over-polite/mechanical phrasing.
-   - **Terminology**: match Microsoft product/UI names; leave untranslated when
-     unsure rather than guessing.
-5. **Self-check against the §7 checklist** in `references/style-rules.md` before
-   building anything. Fix any violation in the text first.
-6. **Build the file via the matching built-in skill**, passing the finalized
-   Japanese text. **Fonts (mandatory, all three formats): Japanese (kana, kanji,
-   full-width punctuation) → `Yu Gothic UI`; English/Latin (ASCII letters,
-   digits, half-width symbols) → `Segoe UI`.** For mixed strings, split by script
-   and set the font per run so each script uses its own face — no exceptions or
-   substitutes.
-   - **`pptx`** — keep line lengths short; full-width text clips sooner than
-     Latin. Set `fontFace` per run.
-   - **`docx`** — apply the two fonts to every style used (見出し, 本文, 表,
-     キャプション): East Asian font `Yu Gothic UI`, Latin font `Segoe UI`. Use
-     原則として体言止め for headings and ですます調 throughout the body; keep one consistent
-     level of politeness across the whole document.
-   - **`xlsx`** — set the two fonts on all cells including headers. Column
-     headers and sheet names use 原則として体言止め and stay short; notes/説明 cells use
-     ですます調. Numbers use half-width digits with half-width `,` separators and
-     a half-width space between digits and units (`2,000 ページ`); dates follow
-     the §3 half-width rules (`2011/1/13`). Never let style rewriting change a
-     numeric value or a formula.
-7. **Deliver.** Confirm the file exists in `output/` (`Glob output/**/*`), then
-   tell the user the file is ready and note 2-3 style choices you applied (e.g.
-   "見出しは体言止め、本文はですます調に統一しました").
+1. **出力形態を決めます。** 指定の形式を優先します。指定がなければ、スライドは `pptx`、文書は `docx`、表は `xlsx` を選びます。文面だけの相談は、必要な参照先と手順 2 から 4 を使ってチャット内で答え、ファイルの生成・検証は行いません。
+2. **事実と固定箇所を先に分けます。** ユーザーの資料を優先し、必要なら `SearchM365` などで指定範囲の資料を探します。不足は `<要確認 : 更新予定日>` のように示します。既存の Excel を編集するなら、照合に必要なセル値・型・数式・ID・参照を変更前に確認します。UI 名や手順は対象の製品、バージョン、表示言語、プラットフォームに合う資料や画面で裏づけます。確認できない情報は推測せず、必要な資料を尋ねます。
+3. **編集できる文面を整えます。** 見出し・項目名は原則として体言止め、本文はですます調です。手順は条件を先に、対象・操作と確認済みの完了方法を後に示します。
+4. **生成前の文面チェック。** [表記ルール §7](references/style-rules.md) で確認します。未確認事項が目的を損なう場合は確定版にせず必要な情報を尋ね、それ以外は該当箇所を明示して進めます。
+5. **ファイルを作成・編集します。** 対応形式のスキルへ確定した文面と保護対象を渡します。日本語 (かな・漢字・和文記号) は `Yu Gothic UI`、英数字・ASCII 記号は `Segoe UI` を指定します。混在するテキストは対応する文字種別フォント欄、または書式の区間 (ラン) で両方を設定します。値や表示文字列を変えてフォントを当てたり、別フォントで補ったりしません。
+   - **PowerPoint** : タイトル、本文、表、キャプション、ノートなどの文字に指定し、日本語の行長を抑えます。
+   - **Word** : 見出し、本文、表、キャプションなどに使うスタイルやランで東アジア用と欧文用を指定します。
+   - **Excel** : セルや見出しに指定し、混在するテキストは対応している場合に文字種別で設定します。値、型、日付シリアル、数式、ID、参照は保持します。混在の指定ができなくても、値や数式を編集可能な文字列に変換しません。
+6. **生成後のファイルチェック。** 保存された対象を形式側の手順で読み戻し、実際に保存されたファイルの参照先、混在文字を含むフォント指定、表示のはみ出し・欠け・改ページを確認します。設定されたフォントと実際の描画は別に扱います。Excel では対応する元データと値・型・数式・ID・参照を照合します。適用手段がないものは「適用不可」、保存結果や描画を検証できなかったものは「未確認」と、対象範囲とともに報告します。代替フォントを黙って使わず、保存を確認できなければ完成や納品済みとは伝えません。
 
 ## Output Format
 
-- A `.pptx`, `.docx`, or `.xlsx` file saved to `output/`, matching the format
-  chosen in step 1.
-- A short plain-language summary: what the file covers, and the key Microsoft
-  Japanese style conventions applied. Flag any placeholders the user must fill.
+- **ファイル依頼** : 確認できた実際の保存先またはファイル参照と、主な変更点を短く伝えます。プレースホルダー、適用不可、未確認があれば区別して添えます。
+- **文面だけの依頼** : 修正文または選択肢と、判断に必要な根拠・未確認箇所を返します。ファイルは作成しません。
+
+## 適用例 (いずれも架空の文例)
+
+- **PowerPoint・顧客向け提案** : 見出し「試行範囲のご提案」。本文「まずは対象業務を絞った試行をご提案します。試行の範囲と確認項目を、次回の打ち合わせでご相談できれば幸いです。」ユーザーの提案方針に沿う場合の文例で、日時、効果、製品機能、実施確約は加えません。
+- **Word・手順** : 架空の社内手順では、前提を「確認用の一覧を用意します。」として、手順を `1. 一覧の対象欄に確認した項目を記入します。` `2. 記入した内容を見直します。` とします。実製品で「設定の保存方法」とだけ指定され、対象アプリや画面が分からない場合は、環境を確認し、推測の `[保存]` や経路は記載しません。
+- **Excel・文面とデータ** : 説明セルの「対象のデータになります。」は「集計対象のデータです。」にできます。テスト用の `=SUM(A1:A3)`、日付型セルの `2026/11/22`、文字列 ID `0007` はそれぞれ数式・型・桁を保持します。
 
 ## Guardrails
 
-- The **public guide is the source of truth** except for the explicit house
-  rules in `references/style-rules.md` §0. Apply those house rules where they
-  differ and identify them as this skill's choices, not official requirements.
-  All other disagreements are resolved in favor of the public guide.
-  The official PDF is referenced by URL rather than redistributed.
-- Use only publicly available sources and the explicit house rules. If a rule
-  cannot be verified publicly, flag it rather than guessing.
-- **Consistency within a file**: don't mix ですます調 and である調 in body text;
-  keep heading, 見出し, and column-header style uniform across all slides,
-  sections, and sheets.
-- **Excel data integrity**: style applies to labels and prose only — never alter
-  numeric values, formulas, IDs, or product names to satisfy a wording rule.
-- **Never fabricate** names, numbers, quotes, dates, or customer references —
-  use visible placeholders instead.
-- **Don't over-apply casual voice** to formal customer deliverables; balance the
-  "warm and relaxed" principle with appropriate 丁寧語.
-- **Fonts are fixed in every format** (pptx / docx / xlsx): Japanese →
-  `Yu Gothic UI`, English/Latin → `Segoe UI`, on every text element (title,
-  headings, body, captions, notes, table cells, column headers). Split mixed text
-  by script and assign the font per run. Never substitute Meiryo, Yu Gothic, Noto
-  Sans JP, Arial, Calibri, or any other face.
-- Produce the final artifact in `output/`; verify before announcing it's ready.
+- 意味、必須条件、制限、否定、調査中か確定かの区別を変えません。未確認の数値、日付、引用、責任、製品や顧客の事実を補いません。
+- 読み手の立場を推測して「弊社」や「貴社」を当てはめません。丁寧さのために事実や依頼内容をぼかしません。
+- 現物を確認した UI、固定文字列、実測で確認した書式と、説明用の見本や未確認事項を区別します。
 
 ## License
 
-Original content in this skill is licensed under the MIT License.
-Copyright (c) 2026 Takuya Ohta. Microsoft source materials, trademarks, and fonts
-are excluded. Include the repository's `LICENSE` when redistributing this skill.
+[MIT License](LICENSE) は、このスキルのオリジナルの記述にのみ適用します。Copyright (c) 2026 Takuya Ohta. リンク先の Microsoft および政府等の資料、商標、フォントの権利やライセンスは変更されません。このスキルは Microsoft や政府機関の公式資料ではなく、承認・推奨を示すものではありません。
